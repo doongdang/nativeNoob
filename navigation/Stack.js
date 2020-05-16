@@ -16,7 +16,7 @@ export default () => (
         borderBottomColor: "black",
         shadowColor: "black",
       },
-      headerTintColor: "white",
+      headerTintColor: "palegreen",
       headerBackTitleVisible: false,
     }}
   >

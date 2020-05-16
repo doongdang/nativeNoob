@@ -1,6 +1,6 @@
 import React, { useLayoutEffect } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Movies from "../screens/Movies";
+import Movies from "../screens/Movies/MoviesContainer";
 import TV from "../screens/TV";
 import Search from "../screens/Search";
 import Favs from "../screens/Favs";
@@ -35,7 +35,7 @@ export default ({ route, navigation }) => {
           return (
             <Ionicons
               name={iconName}
-              color={focused ? "white" : "grey"}
+              color={focused ? "palegreen" : "grey"}
               size={26}
             />
           );
