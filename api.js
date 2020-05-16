@@ -27,16 +27,23 @@ export const movieApi = {
   nowPlaying: () => getThings("/movie/now_playing"),
   popular: () => getThings("/movie/popular"),
   upcoming: () => getThings("/movie/upcoming", { region: "kr" }),
+  // Movie
   search: (query) => getThings("/search/movie", { query }), // {query: query}
+  // Search
   movie: (id) => getThings(`/movie/${id}`),
+  // Detail
   discover: () => getThings("/discover/movie"),
+  //Favs
 };
 
 export const tvApi = {
   airToday: () => getThings("/tv/airing_today"),
   thisWeek: () => getThings("/tv/on_the_air"),
   topRated: () => getThings("/tv/top_rated"),
-  search: (query) => getThings("/search/tv", { query }), // {query: query}
   popular: () => getThings("/tv/popular"),
+  //TV
+  search: (query) => getThings("/search/tv", { query }), // {query: query}
+  //Search
   show: (id) => getThings(`/tv/${id}`),
+  //Detail
 };
