@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { getImage } from "../../api";
 import Poster from "../Poster";
 import { TouchableOpacity } from "react-native";
+import Votes from "../Votes";
 
 const Container = styled.View`
   height: 100%;
@@ -42,10 +43,7 @@ const Title = styled.Text`
   margin-bottom: 10px;
 `;
 
-const Votes = styled.Text`
-  color: palegreen;
-  opacity: 0.7;
-  font-size: 12px;
+const VotesContainer = styled.View`
   margin-bottom: 7px;
 `;
 
@@ -85,7 +83,9 @@ const Slide = ({ id, title, backgroundImage, votes, overview, poster }) => (
       <Poster url={getImage(poster)} />
       <Data>
         <Title>{title.length > 40 ? `${title.slice(0, 40)}...` : title}</Title>
-        <Votes>⭐ {votes} / 10</Votes>
+        <VotesContainer>
+          <Votes votes={votes} />
+        </VotesContainer>
         <Overview>{overview.slice(0, 120)}...</Overview>
         <TouchableOpacity>
           <Button>
