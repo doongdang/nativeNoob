@@ -1,44 +1,51 @@
 import React from "react";
 import styled from "styled-components/native";
 import Swipper from "react-native-web-swiper";
-import { Dimensions, ActivityIndicator } from "react-native";
+import { ActivityIndicator, Dimensions, ScrollView } from "react-native";
+import Slide from "../../components/Movies/Slide";
+import Title from "../../components/Title";
 
-const { width, height } = Dimensions.get("screen");
+const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
 
-const Container = styled.View`
-  flex: 1;
-  background-color: black;
-  justify-content: center;
+const SliderContainer = styled.View`
+  width: ${WIDTH}px;
+  height: ${HEIGHT / 4}px;
+  margin-bottom: 50px;
 `;
 
-const Header = styled.View`
-  width: 100%;
-  height: ${height / 3}px;
-`;
-
-const Section = styled.View`
-  background-color: black;
-  height: 100%;
-`;
-
-const Text = styled.Text`
-  color: palegreen;
-`;
+const Container = styled.View``;
 
 export default ({ loading, nowPlaying }) => (
-  <Container>
+  <ScrollView
+    style={{
+      backgroundColor: "black",
+    }}
+    contentContainerStyle={{
+      flex: 1,
+      justifyContent: loading ? "center" : "flex-start",
+    }}
+  >
     {loading ? (
       <ActivityIndicator color="palegreen" size="large" />
     ) : (
-      <Header>
-        <Swipper controlsEnabled={false} loop timeout={3}>
-          {nowPlaying.map((movie) => (
-            <Section key={movie.id}>
-              <Text>{movie.original_title}</Text>
-            </Section>
-          ))}
-        </Swipper>
-      </Header>
+      <>
+        <SliderContainer>
+          <Swipper controlsEnabled={false} loop timeout={3}>
+            {nowPlaying.map((movie) => (
+              <Slide
+                key={movie.id}
+                id={movie.id}
+                title={movie.original_title}
+                overview={movie.overview}
+                votes={movie.vote_average}
+                backgroundImage={movie.backdrop_path}
+                poster={movie.poster_path}
+              />
+            ))}
+          </Swipper>
+        </SliderContainer>
+        <Title title={"Popular Movies"} />
+      </>
     )}
-  </Container>
+  </ScrollView>
 );

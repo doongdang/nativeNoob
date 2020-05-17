@@ -47,3 +47,5 @@ export const tvApi = {
   show: (id) => getThings(`/tv/${id}`),
   //Detail
 };
+
+export const getImage = (path) => `https://image.tmdb.org/t/p/w500${path}`;
