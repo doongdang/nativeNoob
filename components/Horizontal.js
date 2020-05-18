@@ -31,6 +31,7 @@ const OverviewContainer = styled.View`
 const ReleaseDate = styled.Text`
   font-size: 12px;
   color: palegreen;
+  opacity: 0.7;
 `;
 
 const Horizontal = ({ id, title, releaseDate, poster, overview }) => (
