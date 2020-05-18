@@ -5,6 +5,7 @@ import { ActivityIndicator, Dimensions, ScrollView } from "react-native";
 import Slide from "../../components/Movies/Slide";
 import Title from "../../components/Title";
 import Vertical from "../../components/Vertical";
+import Horizontal from "../../components/Horizontal";
 
 const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
 
@@ -15,6 +16,14 @@ const SliderContainer = styled.View`
 `;
 
 const Container = styled.View``;
+
+const TitleContainer = styled.View`
+  margin-left: 30px;
+`;
+
+const UpcomingContainer = styled.View`
+  margin-top: 20px;
+`;
 
 export default ({ loading, nowPlaying, popular, upcoming }) => (
   <ScrollView
@@ -45,7 +54,9 @@ export default ({ loading, nowPlaying, popular, upcoming }) => (
           </Swipper>
         </SliderContainer>
         <Container>
-          <Title title={"Popular Movies"} />
+          <TitleContainer>
+            <Title title={"Popular Movies"} size={16} />
+          </TitleContainer>
           <ScrollView
             style={{ marginVertical: 20, marginBottom: 40 }}
             showsHorizontalScrollIndicator={false}
@@ -62,16 +73,21 @@ export default ({ loading, nowPlaying, popular, upcoming }) => (
               />
             ))}
           </ScrollView>
-          <Title title={"Coming Soon"} />
-          {/* {upcoming.map((movie) => (
-            <Horizontal
-              id={movie.id}
-              key={movie.id}
-              overview={movie.overview}
-              title={movie.original_title}
-              votes={movie.vote_average}
-            />
-          ))} */}
+          <TitleContainer>
+            <Title title={"Coming Soon"} size={16} />
+          </TitleContainer>
+          <UpcomingContainer>
+            {upcoming.map((movie) => (
+              <Horizontal
+                id={movie.id}
+                key={movie.id}
+                poster={movie.poster_path}
+                overview={movie.overview}
+                title={movie.original_title}
+                releaseDate={movie.release_date}
+              />
+            ))}
+          </UpcomingContainer>
         </Container>
       </>
     )}

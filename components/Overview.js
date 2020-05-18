@@ -5,17 +5,16 @@ import { sliceText } from "../utils";
 
 const Text = styled.Text`
   color: palegreen;
-  font-weight: bold;
 `;
 
-const Title = ({ title, size, limit }) => (
-  <Text style={{ fontSize: size }}>{sliceText(title, limit)}</Text>
+const Overview = ({ overview, size, limit }) => (
+  <Text style={{ fontSize: size }}>{sliceText(overview, limit)}</Text>
 );
 
-Title.propTypes = {
-  title: PropTypes.string.isRequired,
+Overview.propTypes = {
+  overview: PropTypes.string.isRequired,
   limit: PropTypes.number,
   size: PropTypes.number,
 };
 
-export default Title;
+export default Overview;

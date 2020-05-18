@@ -5,6 +5,9 @@ import { getImage } from "../../api";
 import Poster from "../Poster";
 import { TouchableOpacity } from "react-native";
 import Votes from "../Votes";
+import { sliceText } from "../../utils";
+import Title from "../Title";
+import Overview from "../Overview";
 
 const Container = styled.View`
   height: 100%;
@@ -36,10 +39,7 @@ const Data = styled.View`
   align-items: flex-start;
 `;
 
-const Title = styled.Text`
-  color: palegreen;
-  font-weight: bold;
-  font-size: 19px;
+const TitleContainer = styled.View`
   margin-bottom: 10px;
 `;
 
@@ -47,10 +47,8 @@ const VotesContainer = styled.View`
   margin-bottom: 7px;
 `;
 
-const Overview = styled.Text`
-  color: palegreen;
+const OverviewContainer = styled.View`
   opacity: 0.7;
-  font-size: 14px;
 `;
 
 const Button = styled.View`
@@ -80,13 +78,17 @@ const Slide = ({ id, title, backgroundImage, votes, overview, poster }) => (
       />
     )}
     <Content>
-      <Poster url={getImage(poster)} />
+      <Poster url={poster} />
       <Data>
-        <Title>{title.length > 40 ? `${title.slice(0, 40)}...` : title}</Title>
+        <TitleContainer>
+          <Title title={title} limit={40} size={20} />
+        </TitleContainer>
         <VotesContainer>
           <Votes votes={votes} />
         </VotesContainer>
-        <Overview>{overview.slice(0, 120)}...</Overview>
+        <OverviewContainer>
+          <Overview overview={overview} limit={120} />
+        </OverviewContainer>
         <TouchableOpacity>
           <Button>
             <ButtonText>View Details</ButtonText>

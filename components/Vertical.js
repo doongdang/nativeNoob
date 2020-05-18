@@ -2,26 +2,26 @@ import React from "react";
 import styled from "styled-components/native";
 import PropTypes from "prop-types";
 import Poster from "./Poster";
-import { getImage } from "../api";
 import Votes from "./Votes";
 import { TouchableOpacity } from "react-native";
+import Title from "./Title";
 
 const Container = styled.View`
   align-items: center;
   margin-right: 30px;
 `;
 
-const Title = styled.Text`
-  color: palegreen;
-  font-weight: bold;
+const TitleContainer = styled.View`
   margin: 5px 0 5px 0;
 `;
 
 const Vertical = ({ id, poster, title, votes }) => (
   <TouchableOpacity>
     <Container>
-      <Poster url={getImage(poster)} />
-      <Title>{title.length > 13 ? `${title.slice(0, 13)}...` : title}</Title>
+      <Poster url={poster} />
+      <TitleContainer>
+        <Title title={title} limit={10} />
+      </TitleContainer>
       <Votes votes={votes} />
     </Container>
   </TouchableOpacity>
