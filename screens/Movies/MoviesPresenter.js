@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components/native";
 import Swipper from "react-native-web-swiper";
-import { Dimensions, ScrollView } from "react-native";
+import { Dimensions } from "react-native";
 import Slide from "../../components/Movies/Slide";
 import Title from "../../components/Title";
 import Vertical from "../../components/Vertical";
 import Horizontal from "../../components/Horizontal";
 import ScrollReuse from "../../components/ScrollReuse";
+import HorizontalContainer from "../../components/HorizontalContainer";
 
 const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
 
@@ -45,15 +46,7 @@ export default ({ loading, nowPlaying, popular, upcoming }) => (
         </Swipper>
       </SliderContainer>
       <Container>
-        <TitleContainer>
-          <Title title={"Popular Movies"} size={16} />
-        </TitleContainer>
-        <ScrollView
-          style={{ marginVertical: 20, marginBottom: 40 }}
-          showsHorizontalScrollIndicator={false}
-          horizontal
-          contentContainerStyle={{ paddingLeft: 30 }}
-        >
+        <HorizontalContainer title={"Popular Movies"}>
           {popular.map((movie) => (
             <Horizontal
               id={movie.id}
@@ -63,7 +56,7 @@ export default ({ loading, nowPlaying, popular, upcoming }) => (
               votes={movie.vote_average}
             />
           ))}
-        </ScrollView>
+        </HorizontalContainer>
         <TitleContainer>
           <Title title={"Coming Soon"} size={16} />
         </TitleContainer>
