@@ -8,6 +8,7 @@ import Vertical from "../../components/Vertical";
 import Horizontal from "../../components/Horizontal";
 import ScrollReuse from "../../components/ScrollReuse";
 import HorizontalContainer from "../../components/HorizontalContainer";
+import List from "../../components/List";
 
 const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
 
@@ -18,14 +19,6 @@ const SliderContainer = styled.View`
 `;
 
 const Container = styled.View``;
-
-const TitleContainer = styled.View`
-  margin-left: 30px;
-`;
-
-const UpcomingContainer = styled.View`
-  margin-top: 20px;
-`;
 
 export default ({ loading, nowPlaying, popular, upcoming }) => (
   <ScrollReuse loading={loading}>
@@ -57,10 +50,7 @@ export default ({ loading, nowPlaying, popular, upcoming }) => (
             />
           ))}
         </HorizontalContainer>
-        <TitleContainer>
-          <Title title={"Coming Soon"} size={16} />
-        </TitleContainer>
-        <UpcomingContainer>
+        <List title="Coming Soon">
           {upcoming.map((movie) => (
             <Vertical
               id={movie.id}
@@ -71,7 +61,7 @@ export default ({ loading, nowPlaying, popular, upcoming }) => (
               releaseDate={movie.release_date}
             />
           ))}
-        </UpcomingContainer>
+        </List>
       </Container>
     </>
   </ScrollReuse>
