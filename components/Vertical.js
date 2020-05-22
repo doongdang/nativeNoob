@@ -2,36 +2,60 @@ import React from "react";
 import styled from "styled-components/native";
 import PropTypes from "prop-types";
 import Poster from "./Poster";
-import Votes from "./Votes";
-import { TouchableOpacity } from "react-native";
 import Title from "./Title";
+import Overview from "./Overview";
+import { TouchableOpacity } from "react-native";
 
 const Container = styled.View`
-  align-items: center;
-  margin-right: 30px;
+  padding: 0px 30px;
+  margin-bottom: 30px;
+  flex-direction: row;
+  align-items: flex-start;
+`;
+
+const Data = styled.View`
+  width: 60%;
+  margin-left: 30px;
+  align-items: flex-start;
 `;
 
 const TitleContainer = styled.View`
-  margin: 5px 0 5px 0;
+  margin-bottom: 10px;
 `;
 
-const Vertical = ({ id, poster, title, votes }) => (
+const OverviewContainer = styled.View`
+  margin-top: 10px;
+`;
+
+const ReleaseDate = styled.Text`
+  font-size: 12px;
+  color: palegreen;
+  opacity: 0.7;
+`;
+
+const Vertical = ({ id, title, releaseDate, poster, overview }) => (
   <TouchableOpacity>
     <Container>
       <Poster url={poster} />
-      <TitleContainer>
-        <Title title={title} limit={10} />
-      </TitleContainer>
-      <Votes votes={votes} />
+      <Data>
+        <TitleContainer>
+          <Title title={title} limit={30} />
+        </TitleContainer>
+        <ReleaseDate>{releaseDate}</ReleaseDate>
+        <OverviewContainer>
+          <Overview overview={overview} limit={130} />
+        </OverviewContainer>
+      </Data>
     </Container>
   </TouchableOpacity>
 );
 
 Vertical.propTypes = {
   id: PropTypes.number.isRequired,
-  poster: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  votes: PropTypes.number.isRequired,
+  poster: PropTypes.string,
+  releaseDate: PropTypes.string.isRequired,
+  overview: PropTypes.string.isRequired,
 };
 
 export default Vertical;
