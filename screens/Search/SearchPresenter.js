@@ -16,15 +16,19 @@ export default ({ movies, shows, keyword, onChange, onSubmit }) => (
       onChange={onChange}
       onSubmit={onSubmit}
     />
-    <HorizontalContainer title={"Movie Results"}>
-      {movies.map((movie) => (
-        <Horizontal />
-      ))}
-    </HorizontalContainer>
-    <HorizontalContainer title={"Show Results"}>
-      {shows.map((show) => (
-        <Horizontal />
-      ))}
-    </HorizontalContainer>
+    {movies.length !== 0 && (
+      <HorizontalContainer title={"Movie Results"}>
+        {movies.map((movie) => (
+          <Horizontal />
+        ))}
+      </HorizontalContainer>
+    )}
+    {shows.length !== 0 && (
+      <HorizontalContainer title={"Show Results"}>
+        {shows.map((show) => (
+          <Horizontal />
+        ))}
+      </HorizontalContainer>
+    )}
   </Container>
 );
