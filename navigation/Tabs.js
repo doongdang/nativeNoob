@@ -46,9 +46,9 @@ export default ({ route, navigation }) => {
         style: { backgroundColor: "black", borderTopColor: "black" },
       }}
     >
-      <Tabs.Screen name="TV" component={TV} />
-      <Tabs.Screen name="Movies" component={Movies} />
       <Tabs.Screen name="Search" component={Search} />
+      <Tabs.Screen name="Movies" component={Movies} />
+      <Tabs.Screen name="TV" component={TV} />
       <Tabs.Screen name="Favs" component={Favs} />
     </Tabs.Navigator>
   );
