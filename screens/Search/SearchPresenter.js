@@ -6,8 +6,13 @@ const Container = styled.ScrollView`
   background-color: black;
 `;
 
-export default () => (
+export default ({ keyword, onChange, onSubmit }) => (
   <Container>
-    <Input placeholder={"Write a keyboard"} />
+    <Input
+      placeholder={"Write a keyboard"}
+      value={keyword}
+      onChange={onChange}
+      onSubmit={onSubmit}
+    />
   </Container>
 );

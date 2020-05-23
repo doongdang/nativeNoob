@@ -3,7 +3,8 @@ import styled from "styled-components/native";
 import PropTypes from "prop-types";
 
 const TextInput = styled.TextInput`
-  background-color: white;
+  background-color: black;
+  border: 1px solid palegreen;
   color: palegreen;
 `;
 
@@ -14,14 +15,15 @@ const Input = ({ value, onChange, onSubmit, placeholder }) => (
     onSubmitEditing={onSubmit}
     placeholder={placeholder}
     returnKeyType={"search"}
+    placeholderTextColor="palegreen"
   />
 );
 
 Input.propTypes = {
   value: PropTypes.string.isRequired,
-  onChange: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
-  placeholder: PropTypes.func.isRequired,
+  placeholder: PropTypes.string.isRequired,
 };
 
 export default Input;

@@ -1,4 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import SearchPresenter from "./SearchPresenter";
 
-export default () => <SearchPresenter />;
+export default () => {
+  const [keyword, setKeyword] = useState("");
+  const onChange = (text) => setKeyword(text);
+  const onSubmit = () => console.log("Search for", keyword);
+  return (
+    <SearchPresenter
+      onChange={onChange}
+      onSubmit={onSubmit}
+      keyword={keyword}
+    />
+  );
+};
