@@ -15,7 +15,7 @@ const Input = ({ value, onChange, onSubmit, placeholder }) => (
     onSubmitEditing={onSubmit}
     placeholder={placeholder}
     returnKeyType={"search"}
-    placeholderTextColor="palegreen"
+    placeholderTextColor="palegreen" //placeholder text color setting
   />
 );
 

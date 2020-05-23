@@ -1,12 +1,14 @@
 import React from "react";
 import styled from "styled-components/native";
 import Input from "../../components/Search/Input";
+import HorizontalContainer from "../../components/HorizontalContainer";
+import Horizontal from "../../components/Horizontal";
 
 const Container = styled.ScrollView`
   background-color: black;
 `;
 
-export default ({ keyword, onChange, onSubmit }) => (
+export default ({ movies, shows, keyword, onChange, onSubmit }) => (
   <Container>
     <Input
       placeholder={"Write a keyboard"}
@@ -14,5 +16,15 @@ export default ({ keyword, onChange, onSubmit }) => (
       onChange={onChange}
       onSubmit={onSubmit}
     />
+    <HorizontalContainer title={"Movie Results"}>
+      {movies.map((movie) => (
+        <Horizontal />
+      ))}
+    </HorizontalContainer>
+    <HorizontalContainer title={"Show Results"}>
+      {shows.map((show) => (
+        <Horizontal />
+      ))}
+    </HorizontalContainer>
   </Container>
 );
