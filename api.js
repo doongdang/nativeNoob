@@ -48,4 +48,7 @@ export const tvApi = {
   //Detail
 };
 
-export const getImage = (path) => `https://image.tmdb.org/t/p/w500${path}`;
+export const getImage = (path) =>
+  path
+    ? `https://image.tmdb.org/t/p/w500${path}`
+    : "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60";

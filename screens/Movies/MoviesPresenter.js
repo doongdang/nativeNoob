@@ -10,8 +10,8 @@ import SliderContainer from "../../components/SliderContainer";
 
 const Container = styled.View``;
 
-export default ({ loading, nowPlaying, popular, upcoming }) => (
-  <ScrollReuse loading={loading}>
+export default ({ refreshFunc, loading, nowPlaying, popular, upcoming }) => (
+  <ScrollReuse refreshFunc={refreshFunc} loading={loading}>
     <>
       <SliderContainer>
         {nowPlaying.map((movie) => (

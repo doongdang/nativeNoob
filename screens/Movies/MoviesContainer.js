@@ -30,5 +30,5 @@ export default ({ navigation }) => {
   useEffect(() => {
     getData();
   }, []);
-  return <MoviesPresenter {...movies} />;
+  return <MoviesPresenter refreshFunc={getData} {...movies} />;
 };

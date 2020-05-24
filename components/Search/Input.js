@@ -6,6 +6,11 @@ const TextInput = styled.TextInput`
   background-color: black;
   border: 1px solid palegreen;
   color: palegreen;
+  margin: 0px 30px;
+  padding: 10px 20px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  margin-top: 10px;
 `;
 
 const Input = ({ value, onChange, onSubmit, placeholder }) => (
