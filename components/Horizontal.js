@@ -3,8 +3,8 @@ import styled from "styled-components/native";
 import PropTypes from "prop-types";
 import Poster from "./Poster";
 import Votes from "./Votes";
-import { TouchableOpacity } from "react-native";
 import Title from "./Title";
+import NavToDetail from "./NavToDetail";
 
 const Container = styled.View`
   align-items: center;
@@ -16,7 +16,7 @@ const TitleContainer = styled.View`
 `;
 
 const Horizontal = ({ id, poster, title, votes }) => (
-  <TouchableOpacity>
+  <NavToDetail>
     <Container>
       <Poster url={poster} />
       <TitleContainer>
@@ -24,7 +24,7 @@ const Horizontal = ({ id, poster, title, votes }) => (
       </TitleContainer>
       <Votes votes={votes} />
     </Container>
-  </TouchableOpacity>
+  </NavToDetail>
 );
 
 Horizontal.propTypes = {

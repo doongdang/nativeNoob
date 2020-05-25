@@ -12,8 +12,15 @@ const Container = styled.View`
   margin-top: 30px;
 `;
 
-export default ({ loading, popular, topRated, airToday, thisWeek }) => (
-  <ScrollReuse loading={loading}>
+export default ({
+  refreshFunc,
+  loading,
+  popular,
+  topRated,
+  airToday,
+  thisWeek,
+}) => (
+  <ScrollReuse refreshFunc={refreshFunc} loading={loading}>
     <SliderContainer>
       {thisWeek.map((show) => (
         <Slide

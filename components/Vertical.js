@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import Poster from "./Poster";
 import Title from "./Title";
 import Overview from "./Overview";
-import { TouchableOpacity } from "react-native";
+import NavToDetail from "./NavToDetail";
 
 const Container = styled.View`
   padding: 0px 30px;
@@ -34,7 +34,7 @@ const ReleaseDate = styled.Text`
 `;
 
 const Vertical = ({ id, title, releaseDate, poster, overview }) => (
-  <TouchableOpacity>
+  <NavToDetail>
     <Container>
       <Poster url={poster} />
       <Data>
@@ -47,7 +47,7 @@ const Vertical = ({ id, title, releaseDate, poster, overview }) => (
         </OverviewContainer>
       </Data>
     </Container>
-  </TouchableOpacity>
+  </NavToDetail>
 );
 
 Vertical.propTypes = {

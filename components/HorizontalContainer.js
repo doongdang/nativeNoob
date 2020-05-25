@@ -7,9 +7,10 @@ import PropTypes from "prop-types";
 const TitleContainer = styled.View`
   margin-left: 30px;
 `;
+const View = styled.View``;
 
 const HorizontalContainer = ({ title, children }) => (
-  <>
+  <View>
     <TitleContainer>
       <Title title={title} size={16} />
     </TitleContainer>
@@ -21,7 +22,7 @@ const HorizontalContainer = ({ title, children }) => (
     >
       {children}
     </ScrollView>
-  </>
+  </View>
 );
 
 HorizontalContainer.propTypes = {

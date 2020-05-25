@@ -6,7 +6,7 @@ import Horizontal from "../../components/Horizontal";
 import ScrollReuse from "../../components/ScrollReuse";
 
 export default ({ movies, shows, keyword, onChange, onSubmit }) => (
-  <ScrollReuse>
+  <ScrollReuse refreshFunc={onSubmit}>
     <Input
       placeholder={"Write a keyboard"}
       value={keyword}
