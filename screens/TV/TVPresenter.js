@@ -24,6 +24,7 @@ export default ({
     <SliderContainer>
       {thisWeek.map((show) => (
         <Slide
+          isTv={true}
           key={show.id}
           id={show.id}
           title={show.original_name}
@@ -38,6 +39,7 @@ export default ({
       <HorizontalContainer title="Popular Shows">
         {popular.map((show) => (
           <Horizontal
+            isTv={true}
             id={show.id}
             key={show.id}
             poster={show.poster_path}
@@ -49,6 +51,7 @@ export default ({
       <HorizontalContainer title="Top Rated">
         {topRated.map((show) => (
           <Horizontal
+            isTv={true}
             id={show.id}
             key={show.id}
             poster={show.poster_path}
@@ -60,6 +63,7 @@ export default ({
       <List title="Airing Today">
         {airToday.map((show) => (
           <Vertical
+            isTv={true}
             id={show.id}
             key={show.id}
             poster={show.poster_path}

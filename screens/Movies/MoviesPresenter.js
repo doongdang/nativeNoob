@@ -16,6 +16,7 @@ export default ({ refreshFunc, loading, nowPlaying, popular, upcoming }) => (
       <SliderContainer>
         {nowPlaying.map((movie) => (
           <Slide
+            isTv={false}
             key={movie.id}
             id={movie.id}
             title={movie.original_title}
@@ -30,6 +31,7 @@ export default ({ refreshFunc, loading, nowPlaying, popular, upcoming }) => (
         <HorizontalContainer title={"Popular Movies"}>
           {popular.map((movie) => (
             <Horizontal
+              isTv={false}
               id={movie.id}
               key={movie.id}
               poster={movie.poster_path}
@@ -41,6 +43,7 @@ export default ({ refreshFunc, loading, nowPlaying, popular, upcoming }) => (
         <List title="Coming Soon">
           {upcoming.map((movie) => (
             <Vertical
+              isTv={false}
               id={movie.id}
               key={movie.id}
               poster={movie.poster_path}

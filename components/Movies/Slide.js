@@ -8,6 +8,7 @@ import Votes from "../Votes";
 import { sliceText } from "../../utils";
 import Title from "../Title";
 import Overview from "../Overview";
+import NavToDetail from "../NavToDetail";
 
 const Container = styled.View`
   height: 100%;
@@ -61,7 +62,15 @@ const ButtonText = styled.Text`
   color: palegreen;
 `;
 
-const Slide = ({ id, title, backgroundImage, votes, overview, poster }) => (
+const Slide = ({
+  id,
+  title,
+  backgroundImage,
+  votes,
+  overview,
+  poster,
+  isTv,
+}) => (
   <Container>
     {backgroundImage === null ? (
       <EmptyImage
@@ -89,11 +98,11 @@ const Slide = ({ id, title, backgroundImage, votes, overview, poster }) => (
         <OverviewContainer>
           <Overview overview={overview} limit={120} />
         </OverviewContainer>
-        <TouchableOpacity>
+        <NavToDetail id={id} title={title} isTv={isTv}>
           <Button>
             <ButtonText>View Details</ButtonText>
           </Button>
-        </TouchableOpacity>
+        </NavToDetail>
       </Data>
     </Content>
   </Container>
@@ -106,6 +115,7 @@ Slide.propTypes = {
   poster: PropTypes.string,
   votes: PropTypes.number.isRequired,
   overview: PropTypes.string.isRequired,
+  isTv: PropTypes.bool,
 };
 
 export default Slide;

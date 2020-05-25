@@ -33,8 +33,8 @@ const ReleaseDate = styled.Text`
   opacity: 0.7;
 `;
 
-const Vertical = ({ id, title, releaseDate, poster, overview }) => (
-  <NavToDetail>
+const Vertical = ({ id, title, releaseDate, poster, overview, isTv }) => (
+  <NavToDetail id={id} title={title} isTv={isTv}>
     <Container>
       <Poster url={poster} />
       <Data>
@@ -56,6 +56,7 @@ Vertical.propTypes = {
   poster: PropTypes.string,
   releaseDate: PropTypes.string,
   overview: PropTypes.string.isRequired,
+  isTv: PropTypes.bool,
 };
 
 export default Vertical;

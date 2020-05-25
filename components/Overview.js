@@ -12,7 +12,7 @@ const Overview = ({ overview, size, limit }) => (
 );
 
 Overview.propTypes = {
-  overview: PropTypes.string.isRequired,
+  overview: PropTypes.string,
   limit: PropTypes.number,
   size: PropTypes.number,
 };

@@ -13,7 +13,7 @@ const Title = ({ title, size, limit }) => (
 );
 
 Title.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   limit: PropTypes.number,
   size: PropTypes.number,
 };

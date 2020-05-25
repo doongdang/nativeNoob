@@ -15,8 +15,8 @@ const TitleContainer = styled.View`
   margin: 5px 0 5px 0;
 `;
 
-const Horizontal = ({ id, poster, title, votes }) => (
-  <NavToDetail>
+const Horizontal = ({ id, poster, title, votes, isTv }) => (
+  <NavToDetail id={id} title={title} isTv={isTv}>
     <Container>
       <Poster url={poster} />
       <TitleContainer>
@@ -32,6 +32,7 @@ Horizontal.propTypes = {
   poster: PropTypes.string,
   title: PropTypes.string.isRequired,
   votes: PropTypes.number.isRequired,
+  isTv: PropTypes.bool,
 };
 
 export default Horizontal;
