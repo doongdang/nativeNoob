@@ -51,8 +51,36 @@ const DataValue = styled.View`
   opacity: 0.8;
 `;
 
-export default ({ refreshFunc, detail, isTv }) => (
-  <ScrollReuse refreshFunc={refreshFunc}>
+const GenresContainer = styled.View`
+  margin-top: 15px;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
+`;
+
+const Genres = styled.Text`
+  margin-top: 3px;
+  color: palegreen;
+  font-size: 12px;
+  opacity: 0.8;
+`;
+
+const DateTImeContainer = styled.View`
+  margin-top: 15px;
+`;
+
+const View = styled.View`
+  flex-direction: row;
+  margin-bottom: 10px;
+`;
+
+const DateTime = styled.Text`
+  color: palegreen;
+  opacity: 0.8;
+`;
+
+export default ({ refreshFunc, detail, isTv, loading }) => (
+  <ScrollReuse refreshFunc={refreshFunc} loading={loading}>
     <>
       <Header>
         <BG source={{ uri: getImage(detail.backdrop_path, "-") }} />
@@ -66,6 +94,36 @@ export default ({ refreshFunc, detail, isTv }) => (
               />
             </TitleContainer>
             <Votes votes={detail.vote_average} />
+            <GenresContainer>
+              <Title title={"Genres: "} size={13} />
+              {detail.genres?.map((genre) => (
+                <Genres key={genre.id}>/{genre.name}</Genres>
+              ))}
+            </GenresContainer>
+
+            {isTv ? (
+              <DateTImeContainer>
+                <View>
+                  <Title title={"First Air Date: "} size={13} />
+                  <DateTime>{detail.first_air_date}</DateTime>
+                </View>
+                <View>
+                  <Title title={"Season: "} size={13} />
+                  <DateTime>{detail.number_of_seasons}</DateTime>
+                </View>
+              </DateTImeContainer>
+            ) : (
+              <DateTImeContainer>
+                <View>
+                  <Title title={"Release Date: "} size={13} />
+                  <DateTime>{detail.release_date}</DateTime>
+                </View>
+                <View>
+                  <Title title={"Runtime: "} size={13} />
+                  <DateTime>{detail.runtime} minutes</DateTime>
+                </View>
+              </DateTImeContainer>
+            )}
           </Info>
         </Container>
       </Header>
