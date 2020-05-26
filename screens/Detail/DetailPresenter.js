@@ -100,7 +100,6 @@ export default ({ refreshFunc, detail, isTv, loading }) => (
                 <Genres key={genre.id}>/{genre.name}</Genres>
               ))}
             </GenresContainer>
-
             {isTv ? (
               <DateTImeContainer>
                 <View>
